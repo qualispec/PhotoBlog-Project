@@ -1,0 +1,6 @@
+<h1>Posts</h1>
+<% if @tag %>
+  <h2>Tag: <%= @tag.name %></h2>
+<% end %>
+<%= link_to('Most Popular', posts_path(popularity: true)) %>
+<%= render @posts %>

@@ -22,15 +22,14 @@ end
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'rb-fsevent'
+  gem 'growl'
+  gem 'capybara'
 end
 
 group :test do
   gem 'factory_girl_rails'
-  gem 'capybara'
-end
-
-group :development do
-  gem 'guard-rspec'
 end
 
 gem 'jquery-rails'

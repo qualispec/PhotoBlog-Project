@@ -1,0 +1,23 @@
+<h1><%= @user.name %></h1>
+<h2><%= @user.email %></h2>
+
+<%= form_for @post do |f| %>
+  <%= f.label :body, "Caption" %>
+  <%= f.text_field :body %>
+  <%= f.label :user_id, "User ID" %>
+  <%= f.text_field :user_id %>
+  <%= f.submit "Update Photo" %>
+<% end %>
+
+<%= form_for @tag do |f| %>
+  <%= f.label :name, "Tag" %>
+  <%= f.text_field :name %>
+  <%= hidden_field_tag :post_id, @post.id %>
+  <%= f.submit "Add Tag" %>
+<% end %>
+
+<p>Tags: <%= tag_links(@post) %></p>
+
+<%= image_tag(@post.url) %>
+
+<%= button_to "Delete Post", post_path(@user), method: :delete %>

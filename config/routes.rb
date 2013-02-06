@@ -1,4 +1,10 @@
 PhotoBlog::Application.routes.draw do
+  resources :users
+  resources :posts do
+    post 'like', on: :member
+  end
+  resources :tags
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

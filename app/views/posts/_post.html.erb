@@ -1,0 +1,13 @@
+<%= post.body %>
+<br>
+<%= link_to(image_tag(post.url, width: '500'), edit_post_path(post), id: "photo_#{post.id}") %>
+<p>
+  Likes: <%= post.likes %>
+  <%= button_to("Like", like_post_path(post), id: "like_post_#{post.id}") %>
+</p>
+
+<br>
+<p>Tags: <%= tag_links(post) %></p>
+<%= post.created_at %>
+<br>
+<br>
