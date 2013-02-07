@@ -1,6 +1,15 @@
-<h1>Posts</h1>
-<% if @tag %>
-  <h2>Tag: <%= @tag.name %></h2>
-<% end %>
-<%= link_to('Most Popular', posts_path(popularity: true)) %>
-<%= render @posts %>
+<div class="row-fluid">
+  <div class="span12">
+    <% if logged_in? %>
+      <%= button_to "Add a photo", user_path(current_user), method: :get %>
+    <% end %>
+    <% if @tag %>
+      <h2>Tag: <%= @tag.name %></h2>
+    <% end %>
+    <%= link_to('Most Popular', posts_path(popularity: true)) %>
+    <br><br>
+    <div class="row-fluid">
+      <%= render @posts %>
+    </div>
+  </div>
+</div>

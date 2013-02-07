@@ -1,3 +1,71 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// .post {
+//   width: 50%;
+//   float: left;
+// }
+
+.container-header {
+  margin: 0 0 0 50px;
+}
+
+.post {
+  height: 300px;
+  padding-top: 2px;
+}
+
+// .row-fluid .post:first-child {
+//   margin-left: 2.127659574468085%;
+// }
+
+.post:hover {
+  padding-top: 0;
+  border-top: solid 2px black;
+}
+
+.post-body {
+  margin: 5px 0;
+}
+
+.post-footer {
+  margin: 5px 0px;
+}
+
+.post-footer div {
+  margin: auto 5px;
+}
+
+.post-author {
+  float: left;
+}
+
+.post-timestamp {
+  float: left;
+}
+
+.like-button {
+  float: right;
+  margin: auto 5px;
+}
+
+.like-count {
+  float: right;
+  // margin: px 5px 0px 5px;
+}
+
+.post-tags {
+  clear: left;
+  // float: left;
+}
+
+.post-like {
+  padding-bottom: 0;
+}
+
+.post hr {
+  clear: both;
+}
+
+

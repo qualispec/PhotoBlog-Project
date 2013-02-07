@@ -1,20 +1,19 @@
 class PostsController < ApplicationController
+  before_filter :find_post_and_user, :correct_user, :only => [:update]
+
   def create
-    @user = User.find(params[:post].delete(:user_id))
-    @post = @user.posts.create(params[:post])
-    redirect_to user_path(@user)
+    @post = current_user.posts.create(params[:post])
+    redirect_to user_path(current_user)
   end
 
-  def edit
-    @post = Post.find(params[:id])
-    @user = @post.user
+  def show
+    find_post_and_user
     @tag = Tag.new
   end
 
   def update
-    @post = Post.find(params[:id])
     @post.update_attributes(params[:post])
-    redirect_to edit_post_path(@post)
+    redirect_to post_path(@post)
   end
 
   def destroy
@@ -38,5 +37,10 @@ class PostsController < ApplicationController
     post.likes += 1
     post.save
     redirect_to posts_path
+  end
+
+  def find_post_and_user
+    @post = Post.find(params[:id])
+    @user = @post.user
   end
 end

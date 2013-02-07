@@ -4,6 +4,9 @@ PhotoBlog::Application.routes.draw do
     post 'like', on: :member
   end
   resources :tags
+  resource :session
+
+  root to: 'posts#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

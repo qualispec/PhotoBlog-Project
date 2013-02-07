@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :find_user, :only => [:show]
+
   def new
     @user = User.new
   end
@@ -10,7 +12,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    @post = Post.new
+  end
+
+  def find_user
     @user = User.find(params[:id])
-    @post = Post.new(user_id: @user.id)
   end
 end

@@ -1,13 +1,32 @@
-<%= post.body %>
-<br>
-<%= link_to(image_tag(post.url, width: '500'), edit_post_path(post), id: "photo_#{post.id}") %>
-<p>
-  Likes: <%= post.likes %>
-  <%= button_to("Like", like_post_path(post), id: "like_post_#{post.id}") %>
-</p>
+<div class="post span3">
+  <p class="post-body lead"><%= post.body %></p>
 
-<br>
-<p>Tags: <%= tag_links(post) %></p>
-<%= post.created_at %>
-<br>
-<br>
+  <div class="post-photo">
+    <%= link_to(image_tag(post.url), post_path(post), id: "photo_#{post.id}") %>
+  </div>
+
+  <div class="post-footer">
+    <div class="post-author">
+      Posted by <%= link_to post.user.name, user_path(post.user) %>
+    </div>
+
+    <div class="post-timestamp muted">
+      <em><small><%= time_ago_in_words(post.created_at) %> ago</small></em>
+    </div>
+
+    <div class="post-like">
+      <div class="like-button">
+        <%= link_to raw("<i class=\"icon-heart icon-white\"></i> Like"),
+          like_post_path(post),
+          id: "like_post_#{post.id}",
+          class: 'btn btn-primary btn-small',
+          method: :post %>
+      </div>
+      <div class="like-count"><strong><%= post.likes %> likes</strong></div>
+    </div>
+
+    <div class="post-tags">Tags: <%= tag_links(post) %></div>
+  </div>
+
+  <hr>
+</div>

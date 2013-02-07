@@ -8,6 +8,24 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require bootstrap.min
  *= require_self
  *= require_tree .
  */
+
+.main-container {
+  margin: 0 0 0 50px;
+  padding-top: 40px;
+}
+
+.brand {
+  font-size: 2em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.divider-vertical {
+  color: #fff;
+}
